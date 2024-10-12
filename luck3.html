@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Web: Choose Your Fate</title>
+<style>
+body {
+    background-color: #0a0a0a;
+    color: #eaeaea;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #333;
+    background-color: #1b1b1b;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.5;
+    }
+}
+
+h1 {
+    color: #ff4444;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px #000;
+}
+
+#story {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 5px #000;
+}
+
+button {
+    background-color: #222;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 5px #000;
+}
+
+button:hover {
+    background-color: #ff4444;
+    color: #222;
+    text-shadow: none;
+}  
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dark Web: Choose Your Fate</h1>
+        <div id="story">You find yourself in a pitch-black room. The air is thick, and a faint whisper echoes through the darkness. In front of you, three doors appear, each more ominous than the last. Which door will you choose?</div>
+        <div id="choices">
+            <button onclick="makeChoice('door1')">Open Door 1</button>
+            <button onclick="makeChoice('door2')">Open Door 2</button>
+            <button onclick="makeChoice('door3')">Open Door 3</button>
+        </div>
+    </div>
+
+    <script>
+function makeChoice(choice) {
+    const storyElement = document.getElementById('story');
+    const choicesElement = document.getElementById('choices');
+
+    if (choice === 'door1') {
+        storyElement.innerHTML = "You open the first door, and a wave of cold air hits you. The room beyond is filled with eerie, ghostly figures. They reach out to you with transparent hands, whispering your name. Suddenly, the floor beneath you collapses, and you fall into an abyss of endless darkness. <br><br> Game Over.";
+        choicesElement.innerHTML = '<button onclick="resetGame()">Try Again</button>';
+    } else if (choice === 'door2') {
+        storyElement.innerHTML = "The second door creaks open, revealing a long, dimly lit hallway. As you step inside, the door slams shut behind you. The walls begin to close in, and you hear the distant sound of footsteps growing louder. There's no escape... <br><br> You are trapped... forever.";
+        choicesElement.innerHTML = '<button onclick="resetGame()">Play Again</button>';
+    } else if (choice === 'door3') {
+        storyElement.innerHTML = "You cautiously open the third door, and a blinding light fills the room. For a moment, you think you've escaped, but then the light fades, and you find yourself in a morgue. The bodies on the slabs begin to twitch and move, and one of them sits up and stares directly at you with hollow eyes. <br><br> You survived... but at what cost?";
+        choicesElement.innerHTML = '<button onclick="resetGame()">Dare to Play Again?</button>';
+    }
+}
+
+function resetGame() {
+    const storyElement = document.getElementById('story');
+    const choicesElement = document.getElementById('choices');
+
+    storyElement.innerHTML = "You find yourself in a pitch-black room. The air is thick, and a faint whisper echoes through the darkness. In front of you, three doors appear, each more ominous than the last. Which door will you choose?";
+    choicesElement.innerHTML = `
+        <button onclick="makeChoice('door1')">Open Door 1</button>
+        <button onclick="makeChoice('door2')">Open Door 2</button>
+        <button onclick="makeChoice('door3')">Open Door 3</button>
+    `;
+}
+
+      
+    </script>
+</body>
+</html>

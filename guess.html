@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dark Web - Guess Segment</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #cfcfcf;
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    h3 {
+      color: #ff3e3e;
+      margin-bottom: 40px;
+      font-size: 1.5rem;
+      text-shadow: 0 0 8px #ff0000;
+    }
+
+    .circle {
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+      background-color: #ff3e3e;
+      margin: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px #ff3e3e;
+    }
+
+    .circle:hover {
+      box-shadow: 0 0 30px #ff3e3e, 0 0 60px #ff3e3e;
+    }
+
+    #square {
+      width: 150px;
+      height: 150px;
+      background-color: #ffeb3b;
+      margin: 20px auto;
+      border-radius: 5%;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px #ffeb3b;
+    }
+
+    #square:hover {
+      box-shadow: 0 0 30px #ffeb3b, 0 0 60px #ffeb3b;
+    }
+.btn {
+  display: /*inline-block*/none;
+  padding: 10px 20px;
+  background-color: #1a1a1a;
+  color: #ff3e3e;
+  border: 2px solid #ff3e3e;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 10px #ff3e3e;
+  margin-right: 90%;
+}
+
+.btn:hover {
+  background-color: #ff3e3e;
+  color: #1a1a1a;
+  box-shadow: 0 0 20px #ff3e3e, 0 0 40px #ff3e3e;
+}   
+.btn1 {
+  display: /*inline-block*/none;
+  padding: 10px 20px;
+  background-color: #1a1a1a;
+  color: #ff3e3e;
+  border: 2px solid #ff3e3e;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 10px #ff3e3e;
+}
+
+.btn1:hover {
+  background-color: #ff3e3e;
+  color: #1a1a1a;
+  box-shadow: 0 0 20px #ff3e3e, 0 0 40px #ff3e3e;
+}
+  </style>
+</head>
+
+<body>
+  <div id="circleC" class="circle"></div>
+  <div id="container">
+    <h3>Click on the Circle</h3>
+    <div id="circle1" class="circle"></div>
+    <div id="circle2" class="circle"></div>
+    <p id="cir" class="circle"></p>
+    <br><br>
+    <a id="btn1" class="btn1" href="index.html">Go On Main Page</a>
+    <br><br>
+    <div id="circle3" class="circle"></div>
+    <div id="circle4" class="circle"></div>
+  </div>
+<button id="btn" class="btn">ReStart</button>
+<br><br>
+
+
+
+  <script>
+    $(document).ready(function() {
+      $("#circleC").click(function() {
+        var colors = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        $(this).css("background-color", colors);
+      });
+
+      $("#cir").click(function() {
+        $(this).removeClass('circle').attr("id", "square");
+      });
+    });
+document.getElementById("circle1").onclick = function() {
+  alert("Ops!! You select Wrong Box so please refresh the page to play again");
+  document.getElementById("container").style.display = "none";
+  document.getElementById("btn").style.display = "inline-block";
+  document.getElementById("btn1").style.display = "inline-block";
+};  
+
+document.getElementById("circle2").onclick = function() {
+  alert("Ops!! You select Wrong Box so please restart the game to play again");
+  document.getElementById("container").style.display = "none";
+  document.getElementById("btn").style.display = "inline-block";
+  document.getElementById("btn1").style.display = "inline-block";
+};
+
+document.getElementById("circle3").onclick = function() {
+  alert("Ops!! You select Wrong Box so please refresh the page to play again");
+  document.getElementById("container").style.display = "none";
+  document.getElementById("btn").style.display = "inline-block";
+  document.getElementById("btn1").style.display = "inline-block";
+};
+
+document.getElementById("circle4").onclick = function() {
+  alert("Ops!! You select Wrong Box so please refresh the page to play again");
+  document.getElementById("container").style.display = "none";
+  document.getElementById("btn").style.display = "inline-block";
+  document.getElementById("btn1").style.display = "inline-block";
+};
+
+document.getElementById("cir").onclick = function() {
+  alert("Great!! you win the game so move on next level of Site");
+document.getElementById("btn1").style.display = "inline-block";
+};
+
+document.getElementById("btn").onclick = function(){
+  location.reload();
+  alert("Now Start Again");
+  alert("More you Restart, More loss of your DATA!");
+};
+  </script>
+</body>
+</html>

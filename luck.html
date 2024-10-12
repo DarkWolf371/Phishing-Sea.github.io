@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Web: Choose Your Fate</title>
+    <style>
+body {
+  background-color: #0a0a0a;
+  color: #e6e6e6;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #222;
+  background-color: #1a1a1a;
+  /*background-image: url('/images/redroom.jpg');*/ /* Commented out */
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+}
+
+h1 {
+  color: #ff3333;
+  margin-bottom: 20px;
+}
+
+#story {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+button {
+  background-color: #333;
+  color: #ff3333;
+  border: 1px solid #ff3333;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff3333;
+  color: #333;
+}      
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Dark Web: Choose Your Fate</h1>
+        <div id="story">You wake up in a dark, cold room. The air is thick, and you hear faint whispers around you. In front of you, two doors loom ominously, one marked with blood-red stains. Which path will you take?</div>
+        <div id="choices">
+            <button onclick="makeChoice('door1')">Open the Blood-Stained Door</button>
+            <button onclick="makeChoice('door2')">Open the Dark Wooden Door</button>
+        </div>
+    </div>
+
+    <script>
+function makeChoice(choice) {
+  const storyElement = document.getElementById('story');
+  const choicesElement = document.getElementById('choices');
+  const container = document.getElementById('container');
+
+  if (choice === 'door1') {
+    container.style.backgroundImage = "url('/images/redroom.jpg')"; // Set the background image
+    storyElement.innerHTML = "You slowly push open the blood-stained door, and the smell of iron fills your nostrils. The room beyond is dimly lit by flickering candles, casting eerie shadows on the walls. In the center of the room, a figure stands with its back to you, muttering something under its breath. As you step closer, the figure spins around, revealing a grotesque face with hollow eyes. It screams as it lunges at you. <br><br> You have met a terrifying end.";
+    choicesElement.innerHTML = '<button onclick="resetGame()">Try Again</button>';
+  } else if (choice === 'door2') {
+    container.style.backgroundImage = "url('/images/redroom2.jpg')"; // Set the background image
+    storyElement.innerHTML = "You carefully open the dark wooden door, and a cold breeze brushes past you. The room is completely silent, save for the sound of your own breathing. Suddenly, the door slams shut behind you, and the room is plunged into darkness. You hear the soft sound of something crawling towards you... closer and closer... <br><br> You are never seen again.";
+    choicesElement.innerHTML = '<button onclick="resetGame()">Play Again</button>';
+  }
+}
+
+function resetGame() {
+  const storyElement = document.getElementById('story');
+  const choicesElement = document.getElementById('choices');
+  const container = document.getElementById('container');
+
+  container.style.backgroundImage = ""; // Remove the background image
+  storyElement.innerHTML = "You wake up in a dark, cold room. The air is thick, and you hear faint whispers around you. In front of you, two doors loom ominously, one marked with blood-red stains. Which path will you take?";
+  choicesElement.innerHTML = `
+        <button onclick="makeChoice('door1')">Open the Blood-Stained Door</button>
+        <button onclick="makeChoice('door2')">Open the Dark Wooden Door</button>
+    `;
+}      
+    </script>
+</body>
+</html>
